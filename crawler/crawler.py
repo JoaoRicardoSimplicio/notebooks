@@ -33,8 +33,8 @@ class ETLNotebooks:
     def _extrai_dados_notebook(self, notebook_div) -> dict:
         return {
             'descricao': notebook_div.find('p', class_='description').text,
-            'preco': notebook_div.h4.text,
             'titulo': notebook_div.a.get('title'),
+            'preco': float(self._obtem_preco(notebook_div)),
             'reviews': int(self._obtem_quantidade_reviews(notebook_div)),
             'estrelas': len(notebook_div.find('div', class_='ratings').find_all('span'))
         }
@@ -43,6 +43,11 @@ class ETLNotebooks:
         elemento_review = notebook_div.find('div', class_='ratings').find('p', class_='pull-right')
         regex_reviews = re.search('(?P<reviews>\d+).+', elemento_review.text)
         return regex_reviews.group('reviews')
+
+    def _obtem_preco(self, notebook_div: str) -> float:
+        elemento_preco = notebook_div.find('h4', class_="pull-right price")
+        regex_preco = re.search('[\$R]+ *(?P<preco>[\d\.\,]+)', elemento_preco.text)
+        return regex_preco.group('preco')
 
     def _obtem_notebooks_lenovo(self, notebooks: list) -> list:
         regex_notebook_lenovo = re.compile('.*(?P<marca>[Ll]enovo).*')
