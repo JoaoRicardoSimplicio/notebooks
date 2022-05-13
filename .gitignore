@@ -11,3 +11,9 @@ media
 .venv 
 env/ 
 venv/
+
+# Postgres
+postgres*
+
+# Redis
+redis*
