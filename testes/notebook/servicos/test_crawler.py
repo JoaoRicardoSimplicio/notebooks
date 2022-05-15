@@ -1,7 +1,7 @@
 import os
-import mock
 
-from unittest import TestCase
+from django.test import TestCase
+from unittest import mock
 
 from notebook.servicos.crawler import ETLNotebooks
 

@@ -12,7 +12,7 @@ class ETLNotebooks:
 
     URL_BASE = 'https://webscraper.io/test-sites/e-commerce/allinone'
 
-    def __int__(self):
+    def __int__(self) -> None:
         self.notebooks = []
 
     def executar(self) -> None:

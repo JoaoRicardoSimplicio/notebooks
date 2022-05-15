@@ -12,7 +12,7 @@ class NotebookListView(generics.ListAPIView):
     queryset = Notebook.objects.all()
     filter_backends = [OrderingFilter]
     ordering_fields = ['preco', 'reviews', 'estrelas']
-    ordering = '-preco'
+    ordering = 'preco'
 
 
 class NotebookRetrieveView(generics.RetrieveAPIView):
