@@ -2,6 +2,7 @@ import django_rq
 
 from datetime import datetime
 
+from django.conf import settings
 from django_rq.management.commands import rqscheduler
 
 from notebook.tarefas.atualiza import atualiza_notebooks
@@ -19,7 +20,7 @@ def agenda_atualizacao() -> None:
     scheduler.schedule(
         scheduled_time=datetime.utcnow(),
         func=atualiza_notebooks,
-        interval=60
+        interval=settings.INTERVALO_ATUALIZACAO_NOTEBOOKS
     )
 
 

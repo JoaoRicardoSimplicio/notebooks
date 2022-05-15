@@ -9,7 +9,6 @@ ALLOWED_HOSTS = ["*"]
 
 ENVIRONMENT = 'producao'
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -33,3 +32,5 @@ RQ_QUEUES = {
         'DEFAULT_TIMEOUT': 360,
     },
 }
+
+INTERVALO_ATUALIZACAO_NOTEBOOKS = 7200
