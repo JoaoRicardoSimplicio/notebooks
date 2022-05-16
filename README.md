@@ -5,12 +5,12 @@ e as disponibiliza via api. Estão sendo obtidos todos os notebooks do site, ent
 notebooks da marca `Lenovo` estão sendo preservados pelo crawler.
 
 
-
 ### Índice
 
-[Requirements](#requirements)
-[Testes](#testes)
-
+- [Requirements](#requirements)
+- [Crawler](#crawler)
+- [API](API.md)
+- [Testes](#testes)
 
 
 ### Requirements
@@ -18,7 +18,6 @@ notebooks da marca `Lenovo` estão sendo preservados pelo crawler.
 
 - Python 3.8.*
 - docker-compose 1.29.*
-
 
 
 #### Executando o projeto 
@@ -50,9 +49,14 @@ DJANGO_SETTINGS_MODULE=core.settings.base python3 manage.py migrate
 ```
 
 
+### Crawler
+
+Obtem informações dos notebooks.
+Você pode alterar o intervalo de atualização de notebooks `INTERVALO_ATUALIZACAO_NOTEBOOKS` nos
+arquivos de configurações para que o crawler seja executado com essa frequência.
+
 
 ### Testes
-
 
 Rode o tox:
 ```bash
